@@ -59,10 +59,14 @@ int main(int argc, char *argv[]) {
   struct timespec t = diff(ts0, ts1);
 
   float elapsed_time = t.tv_sec + t.tv_nsec/(float)1000000000;
+  int string_len = strlen(DOWNLOAD_FILE_SIZE);
+  char download_file_size_str [100];
+  strncpy (download_file_size_str,  DOWNLOAD_FILE_SIZE, string_len-2);
+  download_file_size_str[string_len-1] = '\0';
+  int download_file_size_in_Mb = (atoi(download_file_size_str))*8;
 
   printf("LOG_OUTPUT: Average for %d calls:\n", NUM_TRIALS);
   printf("LOG_OUTPUT: Network download time average = %.12f seconds\n", elapsed_time/NUM_TRIALS);
-  int download_file_size_in_Mb = (DOWNLOAD_FILE_SIZE[0]-'0')*8;
   if (DOWNLOAD_FILE_SIZE[1] == 'G') {
     download_file_size_in_Mb = download_file_size_in_Mb*1000;
   }
