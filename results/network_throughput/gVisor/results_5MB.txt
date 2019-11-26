@@ -1,0 +1,4 @@
+Starting Network Throughput Test for 100 calls on 5MB file
+LOG_OUTPUT: Average for 100 calls:
+LOG_OUTPUT: Network download time average = 3.730914831161 seconds
+LOG_OUTPUT: Network throughput = 10.7212305069 Mbps

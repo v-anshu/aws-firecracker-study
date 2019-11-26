@@ -56,17 +56,17 @@ int main(int argc, char *argv[]) {
 
   struct timespec ts1;
   clock_gettime(CLOCK_REALTIME, &ts1);
-  struct timespec t = diff(ts0,ts1);
+  struct timespec t = diff(ts0, ts1);
 
   float elapsed_time = t.tv_sec + t.tv_nsec/(float)1000000000;
 
   printf("LOG_OUTPUT: Average for %d calls:\n", NUM_TRIALS);
   printf("LOG_OUTPUT: Network download time average = %.12f seconds\n", elapsed_time/NUM_TRIALS);
-  float download_file_size_in_Mb = (DOWNLOAD_FILE_SIZE[0]-'0')*8;
+  int download_file_size_in_Mb = (DOWNLOAD_FILE_SIZE[0]-'0')*8;
   if (DOWNLOAD_FILE_SIZE[1] == 'G') {
     download_file_size_in_Mb = download_file_size_in_Mb*1000;
   }
-  printf("LOG_OUTPUT: Network throughput = %.12f Mbps\n", download_file_size_in_Mb/elapsed_time);
+  printf("LOG_OUTPUT: Network throughput = %.12f Mbps\n", (download_file_size_in_Mb/elapsed_time) * NUM_TRIALS);
 
   return 0;
 }
