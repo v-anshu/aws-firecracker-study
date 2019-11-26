@@ -9,3 +9,8 @@ echo "Installed GCC"
 # Install curl
 apt-get install curl
 echo "Installed curl"
+
+
+# Install vim
+apt install vim
+echo "Installed vim"
