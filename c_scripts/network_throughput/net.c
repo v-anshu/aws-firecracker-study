@@ -7,12 +7,12 @@
 /*
 ** Source reference: https://github.com/EthanGYoung/gvisor_analysis/blob/master/experiments/execute/network_throughput/net.c
 ** Sample Execution Command:
-** gcc net.c -o net
-** ./net 10 "http://90.130.70.73/1MB.zip"
+** make net
+** ./net 1 5MB
 */
 
 int NUM_TRIALS;
-char* URL;
+char* DOWNLOAD_FILE_SIZE;
 
 /* TODO: Take out this method in a helper file.*/
 struct timespec diff(struct timespec start, struct timespec end)
@@ -39,20 +39,18 @@ int main(int argc, char *argv[]) {
   }
 
   NUM_TRIALS = atoi(argv[1]);
-  URL = argv[2];
+  DOWNLOAD_FILE_SIZE = argv[2];
 
-  float total = 0;
-  float trial_val = 0;
-
-  printf("Starting Network Throughput Test\n");
+  printf("Starting Network Throughput Test for %d calls on %s file\n", NUM_TRIALS, DOWNLOAD_FILE_SIZE);
 
   struct timespec ts0;
   clock_gettime(CLOCK_REALTIME, &ts0);
 
   for (int i = 0; i < NUM_TRIALS; i++) {
           char str[1000];
-          strcpy(str, "curl -so /dev/null ");
-          strcat(str, URL);
+          strcpy(str, "curl -so /dev/null \"http://ipv4.download.thinkbroadband.com/");
+          strcat(str, DOWNLOAD_FILE_SIZE);
+          strcat(str, ".zip\"");
           system(str);
   }
 
@@ -62,8 +60,13 @@ int main(int argc, char *argv[]) {
 
   float elapsed_time = t.tv_sec + t.tv_nsec/(float)1000000000;
 
-  printf("LOG_OUTPUT: Average for %d calls: network download time average = %.12f seconds\n", NUM_TRIALS, elapsed_time/NUM_TRIALS);
-
+  printf("LOG_OUTPUT: Average for %d calls:\n", NUM_TRIALS);
+  printf("LOG_OUTPUT: Network download time average = %.12f seconds\n", elapsed_time/NUM_TRIALS);
+  float download_file_size_in_Mb = (DOWNLOAD_FILE_SIZE[0]-'0')*8;
+  if (DOWNLOAD_FILE_SIZE[1] == 'G') {
+    download_file_size_in_Mb = download_file_size_in_Mb*1000;
+  }
+  printf("LOG_OUTPUT: Network throughput = %.12f Mbps\n", download_file_size_in_Mb/elapsed_time);
 
   return 0;
 }
