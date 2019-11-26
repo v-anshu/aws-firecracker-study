@@ -1,0 +1,3 @@
+LOG_OUTPUT: Average for 100 calls:
+LOG_OUTPUT: Network download time average = 90.724884033203 seconds
+LOG_OUTPUT: Network throughput = 88.1786763668 Mbps
