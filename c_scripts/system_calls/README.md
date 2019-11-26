@@ -8,15 +8,7 @@ gVisor: Instructions to run
 Start a Docker container on gVisor with Ubuntu and 2g memory and 1 vCPU:
 sudo docker run --runtime=runsc -m 2g --cpus="1.0" --rm -it ubuntu:18.04
 
-Install VIM:
-apt-get update
-apt-get install vim
-
-Install gcc:
-apt update
-apt install build-essential
-apt-get install manpages-dev
-gcc --version
+(Assumes installation of gcc. Check guest_init.sh for details)
 
 Compile and run:
 gcc gettimeofday.c -o gettimeofday
@@ -41,5 +33,9 @@ Network Setup:
 ifconfig eth0 up && ip addr add dev eth0 172.20.0.2/24
 ip route add default via 172.20.0.1 && echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-Install gcc: Same as above
-Compile and run: Same as above
+(Assumes installation of gcc. Check guest_init.sh for details)
+gcc gettimeofday.c -o gettimeofday
+./gettimeofday 1000
+
+gcc getpid.c -o getpid
+./getpid 1000
