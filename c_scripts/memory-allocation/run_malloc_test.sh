@@ -13,3 +13,4 @@ make malloc_without_free
 ./malloc_without_free 100000 8 > malloc_without_free_8KB.txt
 ./malloc_without_free 100000 512 > malloc_without_free_512KB.txt
 ./malloc_without_free 100000 1024 > malloc_without_free_1MB.txt
+make clean
