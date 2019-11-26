@@ -14,7 +14,7 @@ firectl --kernel=hello-vmlinux.bin --root-drive=rootfs.ext4 --kernel-opts="conso
 
 ## gVisor
 
-Default memory is 2 GB. Limit CPU to 1.
+* Default memory is 2 GB. Limit CPU to 1.
 ```
 sudo docker run --runtime=runsc --cpus="1.0" --rm -it ubuntu:18.04
 ```
