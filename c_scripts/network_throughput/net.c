@@ -34,7 +34,7 @@ struct timespec diff(struct timespec start, struct timespec end)
 int main(int argc, char *argv[]) {
 	/* Parse command line args */
 	if (argc != 3) {
-          printf("ERROR: Usage: ./driver <number of trials> <URL to curl>\n");
+          printf("ERROR: Usage: ./net <number of trials> <download file size>\n");
           return 0;
   }
 
