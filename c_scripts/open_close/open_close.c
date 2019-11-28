@@ -71,7 +71,7 @@ float execute(char *file) {
 int main(int argc, char *argv[]) {
     // Parse command line args
     if (argc < 2) {
-        printf("ERROR: Usage: ./openclose <number of trials>\n");
+        printf("ERROR: Usage: ./openclose <number of trials><File path>\n");
         return 0;
     }
 
