@@ -1,9 +1,9 @@
 CC = gcc
-EXE = openclose
+EXE = open_close
 
-openclose: clean openclose.o
-	$(CC) -o $(EXE) openclose.o
-openclose.o: openclose.c
-	$(CC) -c openclose.c
+open_close: clean open_close.o
+        $(CC) -o $(EXE) open_close.o
+open_close.o: open_close.c
+        $(CC) -c open_close.c
 clean:
-	rm -f $(EXE) *.o
+        rm -f $(EXE) *.o

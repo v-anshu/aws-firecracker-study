@@ -70,17 +70,19 @@ float execute(char *file) {
 
 int main(int argc, char *argv[]) {
     // Parse command line args
-    if (argc != 2) {
+    if (argc < 2) {
         printf("ERROR: Usage: ./openclose <number of trials>\n");
         return 0;
     }
 
 
     NUM_TRIALS = atoi(argv[1]);
+    FILE_PATH = argv[2];
 
     float total = 0;
 
     total = execute(FILE_PATH);
+    printf("Trials: %d, FileName: %s\n",NUM_TRIALS, FILE_PATH);
 
     printf("LOG_OUTPUT: Average for %d trials: Open/close time average = %.12f seconds\n", NUM_TRIALS, total/NUM_TRIALS);
 
