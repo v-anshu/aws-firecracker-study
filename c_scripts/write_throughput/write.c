@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
 
 
         NUM_TRIALS = atoi(argv[1]);
-        WRITE_SIZE = atoi(argv[2]) * sizeof(char) * 1024;
+        WRITE_SIZE = atoi(argv[2]) * 1024;
 	      FILE_PATH = argv[3];
 
         float total = 0;
