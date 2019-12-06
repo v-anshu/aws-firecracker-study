@@ -1,4 +1,10 @@
 #!/bin/bash -e
+#author		       :Arpit
+#description     :Starts single firecracker instance
+#reference       :https://github.com/firecracker-microvm/firecracker-demo
+#usage           :bash start-firecracker.sh
+#==============================================================================
+
 SB_ID="${1:-0}" # Default to sb_id=0
 
 RO_DRIVE="$PWD/hello-rootfs.ext4"
@@ -57,12 +63,13 @@ curl_put '/logger' <<EOF
 }
 EOF
 
-#curl_put '/machine-config' <<EOF
-#{
-#  "vcpu_count": 1,
-#  "mem_size_mib": 128
-#}
-#EOF
+curl_put '/machine-config' <<EOF
+{
+ "vcpu_count": 1,
+ "mem_size_mib": 2048,
+ "ht_enabled": false
+}
+EOF
 
 curl_put '/boot-source' <<EOF
 {

@@ -1,10 +1,13 @@
 #!/bin/bash
-
-#Usage
+#author		       :Arpit
+#description     :Starts firecracker instances with multiple threads.
+#reference       :https://github.com/firecracker-microvm/firecracker-demo
+#usage           :
 ## bash parallel-start-many.sh 0 2 1
 ## Will start VM#0 to VM#1 1 at a time.
 ## bash parallel-start-many.sh 0 100 5
 ## Will start VM#0 to VM#99 5 at a time.
+#==============================================================================
 
 start="${1:-0}"
 upperlim="${2:-1}"

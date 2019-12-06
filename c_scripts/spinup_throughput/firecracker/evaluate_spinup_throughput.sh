@@ -1,12 +1,12 @@
 #!/bin/bash
-
-# Usage
-## bash evaluate_spinup_throughput.sh
+#author		       :Arpit
+#description     :This script parses firecracker logs to evaluate throughput.
+#usage		       :bash evaluate_spinup_throughput.sh
+#reference       :https://github.com/firecracker-microvm/firecracker-demo
+#==============================================================================
 
 DATA_DIR="fc_logs"
 DEST="$PWD/data.log"
-
-# rm -f $DEST
 
 pushd $DATA_DIR > /dev/null
 
