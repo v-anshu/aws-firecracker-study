@@ -1,6 +1,6 @@
 #!/bin/bash
 #author		       :Arpit
-#description     :Runs various workloads for measuring throughput
+#description     :Spinup multiple microVMs for measuring throughput
 #==============================================================================
 
 thread_count="${1:-1}" # Default thread_count = 1
