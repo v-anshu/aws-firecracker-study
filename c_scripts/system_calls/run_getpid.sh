@@ -1,6 +1,7 @@
 #!/bin/sh
 
 make getpid
+mkdir results
 
 echo "Invoking system call: getpid for 1k iterations"
 rm -f ./results/results_getpid_1k.txt
