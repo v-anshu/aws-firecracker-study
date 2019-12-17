@@ -70,11 +70,11 @@ float mat_mul(int n_a_rows, int n_a_cols, float *const *a, int n_b_cols, float *
     float **m;
     m = mat_init(n_a_rows, n_b_cols);
 
-    // Start timer
+    
     struct timespec ts0;
     clock_gettime(CLOCK_REALTIME, &ts0);
 
-    // Run matrix multiplication
+
     for (i = 0; i < n_a_rows; ++i) {
         for (j = 0; j < n_b_cols; ++j) {
             float t = 0.0;
@@ -84,7 +84,7 @@ float mat_mul(int n_a_rows, int n_a_cols, float *const *a, int n_b_cols, float *
         }
     }
 
-    // End timer
+
     struct timespec ts1;
     clock_gettime(CLOCK_REALTIME, &ts1);
     struct timespec t = diff(ts0,ts1);
@@ -96,7 +96,7 @@ float mat_mul(int n_a_rows, int n_a_cols, float *const *a, int n_b_cols, float *
 }
 
 int main(int argc, char *argv[]) {
-    // Parse command line args
+
     if (argc != 3) {
         printf("ERROR: Usage: ./matrix <number of rows/columns> <number of calls>\n");
         return 0;
