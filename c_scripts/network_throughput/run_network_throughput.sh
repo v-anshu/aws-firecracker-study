@@ -17,14 +17,4 @@ rm -f results_100MB.txt
 touch results_100MB.txt
 ./net 100 100MB >> results_100MB.txt
 
-echo "Downloading 512 MB"
-rm -f results_512MB.txt
-touch results_512MB.txt
-./net 100 512MB >> results_512MB.txt
-
-echo "Downloading 1 GB"
-rm -f results_1GB.txt
-touch results_1GB.txt
-./net 100 1GB >> results_1GB.txt
-
 make clean
